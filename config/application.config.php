@@ -10,7 +10,8 @@ return array(
         'Application',
         'Reports',
         'Album',
-        'Partner'
+        'Partner',
+        'Purchase'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
