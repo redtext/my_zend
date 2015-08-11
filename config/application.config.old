@@ -11,7 +11,12 @@ return array(
         'Reports',
         'Album',
         'Partner',
-        'Purchase'
+        'Purchase',
+        'Budget',
+        'TMC',
+        'Doc',
+        'Software',
+        'Admin'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
