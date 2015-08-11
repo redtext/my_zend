@@ -11,7 +11,8 @@ return array(
         'Reports',
         'Album',
         'Partner',
-        'Purchase'
+        'Purchase',
+        'Budget'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
