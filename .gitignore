@@ -8,4 +8,4 @@ nbproject
 .settings
 composer.lock
 vendor/bin
-zend_error_log
+~zend_error_log
