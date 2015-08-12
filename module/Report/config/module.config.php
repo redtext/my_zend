@@ -2,13 +2,13 @@
 return array(
     'controllers' => array(
          'invokables' => array(
-              'Reports\Controller\Reports' => 'Reports\Controller\IndexController',
+              'Report\Controller\Report' => 'Report\Controller\ReportController',
            ),
     ),
     
     'router' => array(
              'routes' => array(
-                          'reports' => array(
+                          'report' => array(
                         	'type'    => 'segment',
                     		'options' => array(
                             		'route'    => '/report[/:action][/:id]',
@@ -17,7 +17,7 @@ return array(
                             		    'id'     => '[0-9]+',
                                 	    ),
                 	        'defaults' => array(
-            	    		    'controller' => 'Reports\Controller\Reports',
+            	    		    'controller' => 'Report\Controller\Report',
                 		    'action'     => 'index',
 				    ),
 	    			),
@@ -28,7 +28,7 @@ return array(
     
     'view_manager' => array(
           'template_path_stack' => array(
-	       'reports' => __DIR__ . '/../view',
+	       'report' => __DIR__ . '/../view',
         ),
     ),
 );

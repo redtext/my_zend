@@ -1,6 +1,6 @@
 <?php
 
-namespace Reports\Controller;
+namespace Report\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
