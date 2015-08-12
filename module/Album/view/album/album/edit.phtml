@@ -1,3 +1,37 @@
-Module: Album
-Controller: Album
-Action: edit
+<?php
+ // module/Album/view/album/album/edit.phtml:
+
+ $title = 'Edit album';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url(
+     'album',
+     array(
+         'action' => 'edit',
+         'id'     => $this->id,
+     )
+ ));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ ?>
+
+ <div class = "form-group">
+ <?php echo $this->formRow($form->get('title')->setAttribute('class', 'form-control')); ?>
+ </div>
+ 
+ <div class = "form-group">
+ <?php echo $this->formRow($form->get('artist')->setAttribute('class', 'form-control')); ?>
+ </div>
+ 
+ <div> 
+    <?php echo $this->formSubmit($form->get('submit')->setAttribute('class', 'btn btn-default')); ?> 
+    <a class="btn-link" href="<?php echo $this->url("album")?>">&nbsp;<?php echo $this->translate('Вернуться') ?></a>
+ </div>
+       
+ <?php echo $this->form()->closeTag();
