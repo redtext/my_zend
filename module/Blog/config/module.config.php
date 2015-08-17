@@ -1,9 +1,15 @@
 <?php
  return array(
 
-     'controllers' => array(
-         'invokables' => array(
-                      'Blog\Controller\List' => 'Blog\Controller\ListController'
+    'service_manager' => array(
+             'invokables' => array(
+                          'Blog\Service\PostServiceInterface' => 'Blog\Service\PostService'
+                       )
+    ),
+    
+    'controllers' => array(
+         'factories' => array(
+                      'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
                 )
         ),
 

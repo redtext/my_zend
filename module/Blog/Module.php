@@ -8,9 +8,8 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
     /**
       * Returns configuration to merge with application configuration
-      *
       * @return array|\Traversable
-     */
+      */
                             
     public function getConfig()
     {
@@ -18,10 +17,9 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
     }
 
     /**
-     * Return an array for passing to Zend\Loader\AutoloaderFactory.
-     *
-     * @return array
-     */            
+      * Return an array for passing to Zend\Loader\AutoloaderFactory.
+      * @return array
+      */            
     public function getAutoloaderConfig()
     {
         return array(

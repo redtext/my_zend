@@ -1,1 +1,12 @@
-Action "index", controller "List", module "Blog".
+<!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+ <h1>Blog</h1>
+ 
+<?php foreach ($this->posts as $post): ?>
+    <article>
+        <h1 id="post<?php echo $post->getId() ?>"><?php echo  $post->getTitle() ?></h1>
+             <p>
+                      <?php echo $post->getText()?>
+             </p>
+    </article>
+<?php endforeach ?>
+                             
