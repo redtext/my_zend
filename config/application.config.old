@@ -8,8 +8,8 @@
 return array(
     'modules' => array(
         'Application',
-        'Reports',
         'Album',
+        'Report',
         'Partner',
         'Purchase',
         'Budget',
