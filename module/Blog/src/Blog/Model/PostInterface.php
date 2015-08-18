@@ -1,7 +1,8 @@
 <?php
+ // Filename: /module/Blog/src/Blog/Model/PostInterface.php
 namespace Blog\Model;
 
- interface PostInterface
+interface PostInterface
  {
      /**
       * Will return the ID of the blog post
@@ -24,3 +25,4 @@ namespace Blog\Model;
       */
      public function getText();
  }
+

@@ -1,19 +1,31 @@
 <?php
- return array(
 
+ // Filename: /module/Blog/config/module.config.php
+return array(
+
+/**    'db' => array(
+         'driver'         => 'Pdo',
+         'username'       => 'zend',  //edit this
+         'password'       => 'sggutdcchjy',  //edit this
+         'dsn'            => 'mysql:dbname=zend;host=localhost',
+         'driver_options' => array(
+             \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+                )
+        ),*/
     'service_manager' => array(
-             'invokables' => array(
-                          'Blog\Service\PostServiceInterface' => 'Blog\Service\PostService'
-                       )
-    ),
-    
+         'factories' => array(
+             'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\ZendDbSqlMapperFactory',
+             'Blog\Service\PostServiceInterface' => 'Blog\Factory\PostServiceFactory',
+            // 'Zend\Db\Adapter\Adapter'           => 'Zend\Db\Adapter\AdapterServiceFactory'
+         )
+     ),
     'controllers' => array(
          'factories' => array(
-                      'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
-                )
+             'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
+            )
         ),
 
-     // This lines opens the configuration for the RouteManager
+    // This lines opens the configuration for the RouteManager
      'router' => array(
          // Open configuration for all possible routes
          'routes' => array(
@@ -34,10 +46,11 @@
              )
          )
      ),
-
+     
      'view_manager' => array(
               'template_path_stack' => array(
-                           __DIR__ . '/../view',
-                ),
+                     'blog' =>  __DIR__ . '/../view',
+        ),
      ),
- );
+ 
+);

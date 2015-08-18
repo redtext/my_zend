@@ -10,3 +10,4 @@ composer.lock
 vendor/bin
 zend_error_log
 *_log
+*tar.gz
