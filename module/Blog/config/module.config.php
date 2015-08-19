@@ -26,7 +26,37 @@ return array(
         ),
 
     // This lines opens the configuration for the RouteManager
-     'router' => array(
+    'router' => array(
+         'routes' => array(
+             'post' => array(
+                 'type' => 'literal',
+                 'options' => array(
+                     'route'    => '/blog',
+                     'defaults' => array(
+                         'controller' => 'Blog\Controller\List',
+                         'action'     => 'index',
+                     ),
+                 ),
+                 'may_terminate' => true,
+                 'child_routes'  => array(
+                     'detail' => array(
+                         'type' => 'segment',
+                         'options' => array(
+                             'route'    => '/:id',
+                             'defaults' => array(
+                                 'action' => 'detail'
+                             ),
+                             'constraints' => array(
+                                 'id' => '[1-9]\d*'
+                             )
+                         )
+                     )
+                 )
+             )
+         )
+     ),
+
+     /* 'router' => array(
          // Open configuration for all possible routes
          'routes' => array(
              // Define a new route called "post"
@@ -45,7 +75,7 @@ return array(
                  )
              )
          )
-     ),
+     ), */
      
      'view_manager' => array(
               'template_path_stack' => array(
