@@ -1,5 +1,5 @@
 <!-- Filename: /module/Blog/view/blog/list/index.phtml -->
-<h1>Blog</h1>
+<h1>Мои записи</h1>
 
 <?php foreach ($this->posts as $post): ?>
     <article>
@@ -7,5 +7,8 @@
         <p>
                <?php echo $post->getText() ?>
         </p>
+                
+	<a href="<?php echo $this->url('post') ?>/<?php echo $post->getid() ?>">Подробнее</a>
+     
      </article>
 <?php endforeach ?>
