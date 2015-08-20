@@ -16,7 +16,8 @@ return array(
         'TMC',
         'Doc',
         'Software',
-        'Admin'
+        'Admin',
+        'Blog'
         ),
     'module_listener_options' => array(
         'module_paths' => array(

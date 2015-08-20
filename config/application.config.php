@@ -17,7 +17,8 @@ return array(
         'Doc',
         'Software',
         'Admin',
-        'Blog'
+        'Blog',
+        'PhoneBook'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
