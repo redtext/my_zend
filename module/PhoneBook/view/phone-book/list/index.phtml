@@ -25,10 +25,10 @@
      <td><?php echo $this->escapeHtml($album->title);?></td>
      <td><?php echo $this->escapeHtml($album->artist);?></td>
      <td>
-         <a href="<?php echo $this->url('album',
-             array('action'=>'edit', 'id' => $album->id));?>">Edit</a>
-         <a href="<?php echo $this->url('album',
-             array('action'=>'delete', 'id' => $album->id));?>">Delete</a>
+         <a href="<?php echo $this->url('phone',
+             array('action'=>'edit', 'id' => $phone->id));?>">Edit</a>
+         <a href="<?php echo $this->url('phone',
+             array('action'=>'delete', 'id' => $phone->id));?>">Delete</a>
      </td>
  </tr>
  <?php endforeach; ?>
