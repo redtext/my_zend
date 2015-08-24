@@ -22,19 +22,26 @@ class PostFieldset extends Fieldset
 
          $this->add(array(
              'type' => 'text',
-             'name' => 'text',
-             'options' => array(
-                 'label' => 'The Text'
-             )
-         ));
-
-         $this->add(array(
-             'type' => 'text',
              'name' => 'title',
              'options' => array(
                  'label' => 'Blog Title'
-             )
+             ),
+             'attributes' => array(
+                 'class' => 'form-control'
+            )
          ));
+         
+         $this->add(array(
+             'type' => 'text',
+             'name' => 'text',
+             'options' => array(
+                 'label' => 'The Text'
+             ),
+             'attributes' => array(
+                 'class' => 'form-control'
+            )
+         ));
+         
      }
  }
 

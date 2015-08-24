@@ -3,14 +3,13 @@
 <?php
    $form = $this->form;
 //   $form->setAttribute('action', $this->url('post/edit', array(), true));
-    $form->setAttribute();
-     $form->prepare();
+$form->setAttribute();
+$form->prepare();
      
-      $form->get('submit')->setValue('Update Post');
-      
-       echo $this->form()->openTag($form);
-       
-        echo $this->formCollection($form);
-        
-         echo $this->form()->closeTag();
-         
+$form->get('submit')->setValue('Update Post');
+
+echo $this->form()->openTag($form);
+
+echo $this->formCollection($form);
+
+echo $this->form()->closeTag();

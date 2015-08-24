@@ -3,6 +3,8 @@
 namespace Blog\Form;
 
 use Zend\Form\Form;
+use Zend\Stdlib\Hydrator\ClassMethods;
+
 
 class PostForm extends Form
  {
@@ -10,6 +12,9 @@ class PostForm extends Form
      {
          parent::__construct($name, $options);
 
+         //$this->setAttribute('method', 'post');
+         $this->setHydrator(new ClassMethods());
+         
          $this->add(array(
              'name' => 'post-fieldset',
              'type' => 'Blog\Form\PostFieldset',
@@ -22,8 +27,9 @@ class PostForm extends Form
              'type' => 'submit',
              'name' => 'submit',
              'attributes' => array(
-                 'value' => 'Insert new Post'
-             )
+                 'value' => 'Insert new Post',
+                 'class' => 'btn btn-primary'
+             ),
          ));
      }
  }

@@ -6,7 +6,7 @@
      '<?php echo $this->escapeHtml($this->post->getText()); ?>'?
  </p>
 <form action="<?php echo $this->url('post', array(), true) ?>" method="post">
-     <input type="hidden" name="id" value="&lt;?php echo $post-&gt;getId(); ?&gt;">
-     <input type="submit" name="delete_confirmation" value="yes">
-     <input type="submit" name="delete_confirmation" value="no">
+     <input type="hidden" name="id" value="<?php echo $post->getId(); ?>">
+     <input class = "btn btn-danger" type="submit" name="delete_confirmation" value="yes">
+     <input class = "btn btn-primary" type="submit" name="delete_confirmation" value="no">
 </form>
