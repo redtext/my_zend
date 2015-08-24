@@ -18,7 +18,8 @@ return array(
         'Software',
         'Admin',
         'Blog',
-        'PhoneBook'
+        'PhoneBook',
+        'Checklist'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
