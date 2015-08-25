@@ -47,11 +47,11 @@ return array(
         	),
     	    ),
     	    array(
-	        'label' => 'Задачи',
+	        'label' => 'Task',
     	        'route' => 'task',
-        	'pages' => array(
+    	        'pages' => array(
             	    array(
-                	'label' => 'Add',
+                	'label' => 'Добавить задачу',
         	        'route' => 'task',
             	        'action' => 'add',
             	    ),
@@ -62,12 +62,54 @@ return array(
                     ),
 	            array(
     	                'label' => 'Delete',
-        	        'route' => 'album',
+        	        'route' => 'task',
             	        'action' => 'delete',
             	    ),
+        	)
+        	),
+	    array(
+	        'label' => 'Admin',
+    	        'route' => 'admin',
+    	        'pages' => array(
+            	    array(
+                	'label' => 'Add',
+        	        'route' => 'admin',
+            	        'action' => 'add',
+            	    ),
+            	    array(
+                	'label' => 'Edit',
+                	'route' => 'admin',
+                	'action' => 'edit',
+                    ),
+	            array(
+    	                'label' => 'Delete',
+        	        'route' => 'adumin',
+            	        'action' => 'delete',
+            	    ),
+        	)
+        	),        	
+    	    array(
+	        'label' => 'Blog',
+    	        'route' => 'post',
+    	        'pages' => array(
+            	    array(
+                	'label' => 'Add',
+        	        'route' => 'post',
+            	        'action' => 'add',
+            	    ),
+            	    array(
+                	'label' => 'Edit',
+                	'route' => 'post',
+                	'action' => 'edit',
+                    ),
+	            array(
+    	                'label' => 'Delete',
+        	        'route' => 'post',
+            	        'action' => 'delete',
+            	    ),
+        	)
         	),
     	    )
-        ),
     ),
      'service_manager' => array(
          'factories' => array(
