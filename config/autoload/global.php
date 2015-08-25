@@ -19,10 +19,61 @@ return array(
              PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
          ),
      ),
+     'navigation' => array(
+        'default' => array(
+	    array(
+    	        'label' => 'Home',
+        	'route' => 'home',
+    		),
+            array(
+	        'label' => 'Album',
+    	        'route' => 'album',
+        	'pages' => array(
+            	    array(
+                	'label' => 'Add',
+        	        'route' => 'album',
+            	        'action' => 'add',
+            	    ),
+            	    array(
+                	'label' => 'Edit',
+                	'route' => 'album',
+                	'action' => 'edit',
+                    ),
+	            array(
+    	                'label' => 'Delete',
+        	        'route' => 'album',
+            	        'action' => 'delete',
+            	    ),
+        	),
+    	    ),
+    	    array(
+	        'label' => 'Задачи',
+    	        'route' => 'task',
+        	'pages' => array(
+            	    array(
+                	'label' => 'Add',
+        	        'route' => 'task',
+            	        'action' => 'add',
+            	    ),
+            	    array(
+                	'label' => 'Edit',
+                	'route' => 'task',
+                	'action' => 'edit',
+                    ),
+	            array(
+    	                'label' => 'Delete',
+        	        'route' => 'album',
+            	        'action' => 'delete',
+            	    ),
+        	),
+    	    )
+        ),
+    ),
      'service_manager' => array(
          'factories' => array(
              'Zend\Db\Adapter\Adapter'
                      => 'Zend\Db\Adapter\AdapterServiceFactory',
+             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
          ),
      ),
 );
