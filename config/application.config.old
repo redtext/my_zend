@@ -3,6 +3,10 @@ $env = getenv('APP_ENV') ?: 'production';
 
 $modules = array(
     'Application',
+        'ZfcBase', 
+        'ZfcUser',
+        'BjyAuthorize',
+        'ZfcUserDoctrineORM',
         'Album',
         'Report',
         'Partner',
@@ -16,10 +20,13 @@ $modules = array(
         'PhoneBook',
         'Checklist',
         'DoctrineModule',
-        'DoctrineORMModule'
+        'DoctrineORMModule',
+        'User',
+        'MyUser'
+           
     );
 
-if ($env == 'production') {
+if ($env == 'development') {
     $modules[] = 'ZendDeveloperTools';
 }
 
