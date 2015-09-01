@@ -9,5 +9,7 @@ nbproject
 composer.lock
 vendor/bin
 zend_error_log
+access-zend.log
 *_log
 *tar.gz
+*.bak
