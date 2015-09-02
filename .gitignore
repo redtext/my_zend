@@ -13,3 +13,4 @@ access-zend.log
 *_log
 *tar.gz
 *.bak
+*.sql
