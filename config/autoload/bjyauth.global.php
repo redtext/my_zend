@@ -46,16 +46,28 @@ return array(
                     'action' => array('index', 'view'),
                     'roles' => array('guest', 'user'),
                 ),
-
                 array(
-                    'controller' => 'Blog\Controller\List',
+                    'controller' => 'Album\Controller\Album',
+                    'action' => array('add', 'edit'),
+                    'roles' => array('admin', 'user'),
+                ),
+                                
+                array(
+                    'controller' => 'PhoneBook\Controller\PhoneBook',
                     'action' => array('index', 'view'),
                     'roles' => array('guest', 'user'),
                 ),
+
+                array(
+                    'controller' => 'Blog\Controller\List',
+                    'action' => array('index', 'detail'),
+                    'roles' => array('guest', 'user'),
+                ),
 		
+			
 		array(
-                    'controller' => 'Blog\Controller\Write',
-                    'action' => array('add', 'edit', 'delete'),
+                    'controller' => 'Blog\Controller\Delete',
+                    'action' => array('delete'),
                     'roles' => array('admin'),
                 ),
             ),
