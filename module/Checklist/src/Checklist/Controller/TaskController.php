@@ -15,6 +15,12 @@ class TaskController extends AbstractActionController
     {
         $mapper = $this->getTaskMapper();
         return new ViewModel(array('tasks' => $mapper->fetchAll()));
+        $viewmodel = new ViewModel();
+        $authorize = $this->getServiceLocator()->get('BjyAuthorize\Provider\Identity\ProviderInterface');
+        $roles = $authorize->getIdentityRoles();
+        
+        $viewmodel->setVariable("roles", $roles);
+        return $viewmodel;
     }
 
     public function getTaskMapper()

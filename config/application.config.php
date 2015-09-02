@@ -5,6 +5,8 @@ $modules = array(
     'Application',
         'ZfcBase', 
         'ZfcUser',
+        'DoctrineModule',
+        'DoctrineORMModule',
         'BjyAuthorize',
         'ZfcUserDoctrineORM',
         'Album',
@@ -45,7 +47,7 @@ return array(
             ),
         'config_glob_paths' => array('config/autoload/{,*.}{global,local}.php'),
 
-        // Use the $env value to determine the state of the flag
+    /*    // Use the $env value to determine the state of the flag
         'config_cache_enabled' => ($env == 'production'),
         'config_cache_key' => 'app_config',
         
@@ -55,6 +57,6 @@ return array(
         'cache_dir' => 'data/config/',
         
         // Use the $env value to determine the state of the flag
-        'check_dependencies' => ($env != 'production'),
+        'check_dependencies' => ($env != 'production'), */
         )
     );

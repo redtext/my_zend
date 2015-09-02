@@ -26,8 +26,10 @@
         ; ?>
 
     </head>
+    <div class="col-lg-1"> <?php echo $this->zfcUserLoginWidget(); ?> </div>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -74,6 +76,7 @@
     	    ?>
     	                                                      
     	    <?php echo $this->content; ?>
+        	<a href="javascript:window.history.back();">к предыдущей странице</a>
         	<hr>
         	<footer>
         	     <p>&copy; 2005 - <?php echo date('Y') ?>. <?php echo $this->translate('All rights reserved.') ?></p>

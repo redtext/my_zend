@@ -110,7 +110,7 @@ return array(
         	)
         	),
     	    array(
-	        'label' => 'MyUser',
+	        'label' => 'zfcuser',
     	        'route' => 'zfcuser',
     	        'pages' => array(
             	    array(
