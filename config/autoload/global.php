@@ -110,8 +110,8 @@ return array(
         	)
         	),
     	    array(
-	        'label' => 'User',
-    	        'route' => 'user',
+	        'label' => 'MyUser',
+    	        'route' => 'zfcuser',
     	        'pages' => array(
             	    array(
                 	'label' => 'Add',

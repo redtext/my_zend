@@ -21,7 +21,6 @@ $modules = array(
         'Checklist',
         'DoctrineModule',
         'DoctrineORMModule',
-        'User',
         'MyUser'
            
     );
