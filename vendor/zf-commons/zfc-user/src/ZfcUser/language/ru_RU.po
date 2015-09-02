@@ -123,6 +123,6 @@ msgstr ""
 msgid "Hello"
 msgstr "Привет"
 
-#: view/zfc-user/user/index.phtml:3
+#: ../../../view/zfc-user/user/index.phtml:3
 msgid "Sign Out"
 msgstr "Выйти"

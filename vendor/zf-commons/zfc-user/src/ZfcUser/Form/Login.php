@@ -26,7 +26,8 @@ class Login extends ProvidesEventsForm
                 'label' => '',
             ),
             'attributes' => array(
-                'type' => 'text'
+                'type' => 'text',
+                'class' => 'form-control'
             ),
         ));
 
@@ -45,6 +46,7 @@ class Login extends ProvidesEventsForm
             ),
             'attributes' => array(
                 'type' => 'password',
+                'class' => 'form-control'
             ),
         ));
 
@@ -59,9 +61,10 @@ class Login extends ProvidesEventsForm
 
         $submitElement = new Element\Button('submit');
         $submitElement
-            ->setLabel('Sign In')
+            ->setLabel('Зарегистрироваться')
             ->setAttributes(array(
                 'type'  => 'submit',
+                'class' => 'btn-primary'
             ));
 
         $this->add($submitElement, array(

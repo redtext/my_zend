@@ -18,11 +18,12 @@ $form->setAttribute('method', 'post');
         <dt><?php echo $this->formLabel($form->get('credential')) ?></dt>
         <dd><?php echo $this->formInput($form->get('credential')) ?></dd>
 
-        <?php if ($this->redirect): ?>
+        <div><?php if ($this->redirect): ?>
             <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
         <?php endif ?>
 
         <dd><?php echo $this->formButton($form->get('submit')) ?></dd>
+        </div>
     </dl>
 
 <?php echo $this->form()->closeTag() ?>

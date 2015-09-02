@@ -13,6 +13,7 @@ return array(
     'service_manager' => array(
         'aliases' => array(
             'zfcuser_zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
+            'translator' => 'MvcTranslator',
         ),
     ),
     'router' => array(
@@ -93,4 +94,15 @@ return array(
             ),
         ),
     ),
+    'translator' => array(
+            'locale' => 'ru_RU',
+                    'translation_file_patterns' => array(
+                                array(
+                                                'type'     => 'gettext',
+                                                                'base_dir' => __DIR__ . '/../language',
+                                                                                'pattern'  => '%s.mo',
+                                                                                            ),
+                                                                                                    ),
+                                                                                                        )
+                                                                                                        
 );
