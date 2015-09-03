@@ -66,10 +66,16 @@ return array(
 		
 			
 		array(
+                    'controller' => 'Blog\Controller\Write',
+                    'action' => array('edit', 'add'),
+                    'roles' => array('admin'),
+                ),
+                
+                array(
                     'controller' => 'Blog\Controller\Delete',
                     'action' => array('delete'),
                     'roles' => array('admin'),
-                ),
+                )
             ),
         ),
     ),

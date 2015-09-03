@@ -7,5 +7,11 @@
      <dt>Post Text</dt>
      <dd><?php echo $this->escapeHtml($this->post->getText());?></dd>
 </dl>
+<?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
 <a href="<?php echo $this->url('post') ?>/edit/<?php echo $post->getid() ?>">Редактировать</a>
 <a href="<?php echo $this->url('post') ?>/delete/<?php echo $post->getid() ?>">Удалить</a>
+<?php } 
+else
+{ ?>
+<a href="<?php echo $this->url('post') ?>">Вернуться</a>
+<?php } ?>
