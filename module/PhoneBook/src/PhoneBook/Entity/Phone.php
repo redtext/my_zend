@@ -1,0 +1,117 @@
+<?php
+
+namespace PhoneBook\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use BjyAuthorize\Provider\Role\ProviderInterface;
+// use ZfcUser\Entity\UserInterface;
+
+    /** @ORM\Entity */
+
+class Phone //implements ProviderInterface
+{
+    /**
+    * @ORM\Id
+    * @ORM\GeneratedValue(strategy="AUTO")
+    * @ORM\Column(type="integer")
+    */
+    protected $id;
+    
+    /** @ORM\Column(type="string", length=255, unique=false, nullable=true ) */
+    protected $fullName;
+
+
+    /** @ORM\Column(type="string", length=255, unique=false, nullable=true ) */
+    protected $position;
+    
+    /** @ORM\Column(type="string", length=25, unique=false, nullable=true ) */
+    protected $office;
+    
+    /** @ORM\Column(type="integer") */
+    protected $tel_int;
+    
+    /** @ORM\Column(type="integer", length=25) */
+    protected $tel_gorod;
+    
+    /** @ORM\Column(type="string", length=255, unique=false, nullable=true ) */
+    protected $sotovyi;
+    
+    /** @ORM\Column(type="string") */
+    protected $email;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getFullName()
+    {
+        return $this->fullName;
+    }
+
+    public function setFullName($value)
+    {
+        $this->fullName = $value;
+    }
+
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    public function setPosition($value)
+    {
+        $this->position = $value;
+    }
+    
+    
+    public function getOffice()
+    {
+        return $this->office;
+    }
+
+    public function setOffice($value)
+    {
+        $this->office = $value;
+    }
+    
+    public function getTel_Int()
+    {
+        return $this->tel_int;
+    }
+
+    public function setTel_Int($value)
+    {
+        $this->tel_int = $value;
+    }
+    
+    public function getTel_Gorod()
+    {
+        return $this->tel_gorod;
+    }
+
+    public function setTel_Gorod($value)
+    {
+        $this->tel_gorod = $value;
+    }
+    
+    public function getSotovyi()
+    {
+        return $this->sotovyi;
+    }
+
+    public function setSotovyi($value)
+    {
+        $this->sotovyi = $value;
+    }
+    
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($value)
+    {
+        $this->email = $value;
+    }
+}

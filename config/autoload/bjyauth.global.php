@@ -53,9 +53,21 @@ return array(
                 ),
                                 
                 array(
-                    'controller' => 'PhoneBook\Controller\PhoneBook',
+                    'controller' => 'PhoneBook\Controller\List',
                     'action' => array('index', 'view'),
+                    'roles' => array('guest', 'user', 'admin'),
+                ),
+                
+                array(
+                    'controller' => 'PhoneBook\Controller\PhoneBook',
+                    'action' => array('index'),
                     'roles' => array('guest', 'user'),
+                ),
+                
+                array(
+                    'controller' => 'PhoneBook\Controller\PhoneBook',
+                    'action' => array('edit', 'delete', 'add'),
+                    'roles' => array('user', 'admin'),
                 ),
 
                 array(

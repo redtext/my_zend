@@ -1,0 +1,15 @@
+<?php
+
+$title = 'Edit User';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+  fullname: <input type="text" name="fullname" value="<?php echo $phone->getFullname(); ?>"><br>
+  position: <input type="text" name="position" value="<?php echo $phone->getPosition(); ?>"><br>
+  Кабинет: <input type="text" name="office" value="<?php echo $phone->getOffice(); ?>"><br>
+  внутренний номер: <input type="text" name="tel_int" value="<?php echo $phone->getTel_Int(); ?>"><br>
+  городской: <input type="text" name="tel_gorod" value="<?php echo $phone->getTel_Gorod(); ?>"><br>
+  сотовый: <input type="text" name="sotovyi" value="<?php echo $phone->getSotovyi(); ?>"><br>
+  <input type="submit" value="Submit">
+</form>

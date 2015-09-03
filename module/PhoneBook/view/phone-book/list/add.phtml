@@ -1,0 +1,16 @@
+<?php
+
+$title = 'Add new User';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+  fullname: <input type="text" name="fullname"><br>
+  position: <input type="text" name="position"><br>
+  office: <input type="text" name="office"><br>
+  внутренний номер: <input type="text" name="tel_int"><br>
+  городской: <input type="text" name="tel_gorod"><br>
+  Сотовый: <input type="text" name="sotovyi"><br>
+  email: <input type="text" name="email"><br>
+  <input type="submit" value="Submit">
+</form>
