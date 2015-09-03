@@ -26,6 +26,27 @@ return array(
         	'route' => 'home',
     		),
             array(
+	        'label' => 'Phonebook',
+    	        'route' => 'phone',
+    	        'pages' => array(
+            	    array(
+                	'label' => 'Add',
+        	        'route' => 'user',
+            	        'action' => 'add',
+            	    ),
+            	    array(
+                	'label' => 'Edit',
+                	'route' => 'user',
+                	'action' => 'edit',
+                    ),
+	            array(
+    	                'label' => 'Delete',
+        	        'route' => 'user',
+            	        'action' => 'delete',
+            	    )	    
+        	)
+        	),
+            array(
 	        'label' => 'Album',
     	        'route' => 'album',
         	'pages' => array(
@@ -130,27 +151,7 @@ return array(
             	    ),
             ),
             ),
-            array(
-	        'label' => 'Phonebook',
-    	        'route' => 'phone',
-    	        'pages' => array(
-            	    array(
-                	'label' => 'Add',
-        	        'route' => 'user',
-            	        'action' => 'add',
-            	    ),
-            	    array(
-                	'label' => 'Edit',
-                	'route' => 'user',
-                	'action' => 'edit',
-                    ),
-	            array(
-    	                'label' => 'Delete',
-        	        'route' => 'user',
-            	        'action' => 'delete',
-            	    )	    
-        	)
-        	),
+            
     	    )
     ),
      'service_manager' => array(

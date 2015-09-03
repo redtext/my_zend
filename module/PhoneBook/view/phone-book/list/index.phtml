@@ -4,9 +4,11 @@
  $this->headTitle($title);
  ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
  <p>
      <a href="<?php echo $this->url('phone', array('action'=>'add'));?>">Добавить новую запись</a>
  </p>
+<?php } ?>
 
  <table class="table table-bordered table-hover table-striped">
  <tr>
