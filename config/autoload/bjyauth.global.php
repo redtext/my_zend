@@ -87,8 +87,14 @@ return array(
                     'controller' => 'Blog\Controller\Delete',
                     'action' => array('delete'),
                     'roles' => array('admin'),
-                )
-            ),
+                ),
+            
+        	array(
+                    'controller' => 'Checklist\Controller\Task',
+                    'action' => array('index'),
+                    'roles' => array('admin'),
+                ),
+    	    ),
         ),
     ),
 );

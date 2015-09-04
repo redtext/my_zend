@@ -26,11 +26,13 @@
                         <td><?php echo $phone->getId(); ?></td>
                         <td><?php echo $phone->getFullName(); ?></td>
                         <td><?php echo $phone->getemail(); ?></td>
+                        <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
                         <td>
                             <a href="<?php echo $this->url('phone', 
                             array('action'=>'edit', 'id' => $phone->getId()));?>">Edit</a> 
                             <a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId()));?>">Delete</a>
                         </td>
+                        <?php } ?>
                     </tr>
                     </tbody>
                 <?php endforeach; ?>
