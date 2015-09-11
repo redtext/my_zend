@@ -6,18 +6,18 @@
             </div>
             <div class="panel-body">
                 <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
-            	    <a href="<?php echo $this->url('phone', array('action'=>'add'));?>">Add Contact</a>
+            	    <a href="<?php echo $this->url('phone', array('action'=>'add'));?>"><?php echo $this->translate('Add Contact'); ?></a>
 		<?php }  ?>
                 
                 <?php if (isset($phones)):?>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Full name</th>
-                        <th>email</th>
+			<th><?php echo $this->translate('Id'); ?></th>
+                        <th><?php echo $this->translate('Full name'); ?></th>
+                        <th><?php echo $this->translate('email'); ?></th>
                         <th></th>
-                    </tr>
+	            </tr>
                     </thead>
                 
                 <?php foreach($phones as $phone): ?>
@@ -29,8 +29,8 @@
                         <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
                         <td>
                             <a href="<?php echo $this->url('phone', 
-                            array('action'=>'edit', 'id' => $phone->getId()));?>">Edit</a> 
-                            <a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId()));?>">Delete</a>
+                            array('action'=>'edit', 'id' => $phone->getId()));?>"><?php echo $this->translate('Edit'); ?></a> 
+                            <a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId()));?>"><?php echo $this->translate('Delete'); ?></a>
                         </td>
                         <?php } ?>
                     </tr>

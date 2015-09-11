@@ -45,4 +45,15 @@ return array(
              'phonebook' => __DIR__ . '/../view',
          ),
      ),
+     'translator' => array(
+            'locale' => 'ru_RU',
+            'translation_file_patterns' => array(
+                    array(
+                        'type'     => 'gettext',
+                        'base_dir' => __DIR__ . '/../language',
+                        'pattern'  => '%s.mo',
+                        ),
+            ),
+    )
+
  );
