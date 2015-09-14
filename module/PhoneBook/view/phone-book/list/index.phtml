@@ -15,7 +15,13 @@
                     <tr>
 			<th><?php echo $this->translate('Id'); ?></th>
                         <th><?php echo $this->translate('Full name'); ?></th>
+                        <th><?php echo $this->translate('Position'); ?></th>
+                        <th><?php echo $this->translate('Office'); ?></th>
+                        <th><?php echo $this->translate('tel_int'); ?></th>
+                        <th><?php echo $this->translate('tel_gorod'); ?></th>
+                        <th><?php echo $this->translate('sotovyi'); ?></th>
                         <th><?php echo $this->translate('email'); ?></th>
+                        
                         <th></th>
 	            </tr>
                     </thead>
@@ -25,6 +31,11 @@
                     <tr>
                         <td><?php echo $phone->getId(); ?></td>
                         <td><?php echo $phone->getFullName(); ?></td>
+                        <td><?php echo $phone->getPosition(); ?></td>
+                        <td><?php echo $phone->getOffice(); ?></td>
+                        <td><?php echo $phone->getTel_Int(); ?></td>
+                        <td><?php echo $phone->getTel_Gorod(); ?></td>
+                        <td><?php echo $phone->getSotovyi(); ?></td>
                         <td><?php echo $phone->getemail(); ?></td>
                         <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
                         <td>

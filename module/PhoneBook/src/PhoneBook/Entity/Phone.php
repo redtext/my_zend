@@ -30,7 +30,7 @@ class Phone //implements ProviderInterface
     /** @ORM\Column(type="integer") */
     protected $tel_int;
     
-    /** @ORM\Column(type="integer", length=25) */
+    /** @ORM\Column(type="string", length=15) */
     protected $tel_gorod;
     
     /** @ORM\Column(type="string", length=255, unique=false, nullable=true ) */

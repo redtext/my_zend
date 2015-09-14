@@ -5,12 +5,12 @@ $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <form method="post">
-  fullname: <input type="text" name="fullname"><br>
-  position: <input type="text" name="position"><br>
-  office: <input type="text" name="office"><br>
-  внутренний номер: <input type="text" name="tel_int"><br>
-  городской: <input type="text" name="tel_gorod"><br>
-  Сотовый: <input type="text" name="sotovyi"><br>
-  email: <input type="text" name="email"><br>
-  <input type="submit" value="Submit">
+  <?php echo $this->translate('fullname') ?>: <input class="form-control" type="text" name="fullname"><br>
+  <?php echo $this->translate('position') ?>: <input class="form-control" type="text" name="position"><br>
+  <?php echo $this->translate('office') ?>: <input class="form-control" type="text" name="office"><br>
+  <?php echo $this->translate('tel_int') ?>: <input class="form-control" type="text" name="tel_int"><br>
+  <?php echo $this->translate('tel_gorod') ?>: <input class="form-control" type="text" name="tel_gorod"><br>
+  <?php echo $this->translate('sotovyi') ?>: <input class="form-control" type="text" name="sotovyi"><br>
+  <?php echo $this->translate('email') ?>: <input class="form-control" type="text" name="email"></br>
+  <input class="btn btn-default"  type="submit" value="Submit">
 </form>
