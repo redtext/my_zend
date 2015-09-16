@@ -20,6 +20,7 @@ class ListController extends AbstractActionController
     public function addAction()
     {
         if ($this->request->isPost()) {
+            $phone->setInputFilter($phone->getInputFilter());
             $phone = new Phone();
             $phone->setPosition($this->getRequest()->getPost('position'));
             $phone->setOffice($this->getRequest()->getPost('office'));

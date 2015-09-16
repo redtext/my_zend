@@ -5,7 +5,7 @@
                 <h3 class="panel-title">Телефонный справочник</h3>
             </div>
             <div class="panel-body">
-                <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
+                <?php if ($this->isAllowed('controller/PhoneBook\Controller\PhoneBook:add', 'admin')) { ?>
             	    <a href="<?php echo $this->url('phone', array('action'=>'add'));?>"><?php echo $this->translate('Add Contact'); ?></a>
 		<?php }  ?>
                 

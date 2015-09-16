@@ -42,59 +42,36 @@ return array(
                 array('controller' => 'Application\Controller\Index', 'roles' => array()),
 
                 array(
-                    'controller' => 'Album\Controller\Album',
-                    'action' => array('index', 'view'),
-                    'roles' => array('guest', 'user'),
-                ),
-                array(
-                    'controller' => 'Album\Controller\Album',
-                    'action' => array('add', 'edit'),
-                    'roles' => array('admin', 'user'),
-                ),
-                                
-                array(
-                    'controller' => 'PhoneBook\Controller\List',
-                    'action' => array('index', 'view'),
-                    'roles' => array('guest', 'user', 'admin'),
+                    'controller' => array('blog/post', 
+                			  'blog/category', 
+                			  'Admin\Controller\Admin', 
+                			  'Checklist\Controller\Task',
+                			  'Album\Controller\Album',
+                			  'Blog\Controller\List',
+                			  'Blog\Controller\Write',
+                			  'Blog\Controller\Delete',
+                			  'PhoneBook\Controller\PhoneBook',
+                			  'PhoneBook\Controller\List',
+                			  'DoctrineORMModule\Yuml\YumlController',
+                			  ),
+                    'action' => array('index', 'add', 'detail', 'delete', 'edit'),
+                    'roles' => array('admin'),
                 ),
                 
                 array(
-                    'controller' => 'PhoneBook\Controller\PhoneBook',
+                    'controller' => array('blog/post', 
+                			  'blog/category', 
+                			  'Admin\Controller\Admin', 
+                			  'Checklist\Controller\Task',
+                			  'Album\Controller\Album',
+                			  'PhoneBook\Controller\PhoneBook',
+                			  ),
                     'action' => array('index'),
                     'roles' => array('guest', 'user'),
                 ),
                 
-                array(
-                    'controller' => 'PhoneBook\Controller\PhoneBook',
-                    'action' => array('edit', 'delete', 'add'),
-                    'roles' => array('user', 'admin'),
-                ),
 
-                array(
-                    'controller' => 'Blog\Controller\List',
-                    'action' => array('index', 'detail'),
-                    'roles' => array('guest', 'user'),
-                ),
-		
-			
-		array(
-                    'controller' => 'Blog\Controller\Write',
-                    'action' => array('edit', 'add'),
-                    'roles' => array('admin'),
-                ),
-                
-                array(
-                    'controller' => 'Blog\Controller\Delete',
-                    'action' => array('delete'),
-                    'roles' => array('admin'),
-                ),
-            
-        	array(
-                    'controller' => 'Checklist\Controller\Task',
-                    'action' => array('index'),
-                    'roles' => array('admin'),
-                ),
-    	    ),
+        ),    
         ),
     ),
 );

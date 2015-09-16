@@ -1,36 +1,53 @@
 <?php
- // Filename: /module/Blog/src/Blog/Form/PostForm.php
 namespace Blog\Form;
 
+use Doctrine\ORM\EntityManager;
 use Zend\Form\Form;
-use Zend\Stdlib\Hydrator\ClassMethods;
-
 
 class PostForm extends Form
- {
-     public function __construct($name = null, $options = array())
-     {
-         parent::__construct($name, $options);
+{
+    public function __construct(EntityManager $em)
+    {
+        parent::__construct('post');
 
-         //$this->setAttribute('method', 'post');
-         $this->setHydrator(new ClassMethods());
-         
-         $this->add(array(
-             'name' => 'post-fieldset',
-             'type' => 'Blog\Form\PostFieldset',
-             'options' => array(
-                 'use_as_base_fieldset' => true
-             )
-         ));
+        $this->setAttribute('method', 'post');
 
-         $this->add(array(
-             'type' => 'submit',
-             'name' => 'submit',
-             'attributes' => array(
-                 'value' => 'Insert new Post',
-                 'class' => 'btn btn-primary'
-             ),
-         ));
-     }
- }
+        $this->add(array(
+            'name' => 'title',
+            'type'  => 'text',
+            'options' => array('label' => 'Title'),
+            'attributes' => array(
+                'class' => 'input-xxlarge'
+            )
+        ));
 
+        $this->add(array(
+            'name' => 'content',
+            'type'  => 'textarea',
+            'options' => array('label' => 'Content',),
+        ));
+
+        $this->add(array(
+            'name' => 'category',
+            'type' => 'DoctrineModule\Form\Element\ObjectSelect',
+            'options' => array(
+                'label' => 'Category',
+                'object_manager' => $em,
+                'target_class' => 'Blog\Entity\Category',
+                'property' => 'name'
+            ),
+            'attributes' => array(
+                'required' => true
+            )
+        ));
+
+        $this->add(array(
+            'name' => 'submit',
+            'attributes' => array(
+                'type'  => 'submit',
+                'value' => 'Save',
+                'id' => 'submitbutton',
+            ),
+        ));
+    }
+}

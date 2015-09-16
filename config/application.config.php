@@ -19,7 +19,6 @@ $modules = array(
         'Software',
         'Admin',
         'Blog',
-//        'Blog_new',
         'PhoneBook',
         'Checklist',
         'DoctrineModule',
