@@ -53,6 +53,9 @@ class PostController extends EntityUsingController
                 $em->flush();
 
                 $this->flashMessenger()->addSuccessMessage('Post Saved');
+                $this->flashMessenger()->addMessage('sadf');
+                $this->flashMessenger()->addErrorMessage('2312');
+                
 
                 return $this->redirect()->toRoute('post');
             }
