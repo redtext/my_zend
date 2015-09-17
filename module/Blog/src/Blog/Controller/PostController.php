@@ -42,6 +42,7 @@ class PostController extends EntityUsingController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
+            
             $form->setInputFilter($post->getInputFilter());
             $form->setData($request->getPost());
 
@@ -50,8 +51,7 @@ class PostController extends EntityUsingController
 
                 $em->persist($post);
                 $em->flush();
-		$newid = $post->getID(); 
-		
+
                 $this->flashMessenger()->addSuccessMessage('Post Saved');
 
                 return $this->redirect()->toRoute('post');
@@ -60,7 +60,7 @@ class PostController extends EntityUsingController
 
         return new ViewModel(array(
             'post' => $post,
-            
+            'form' => $form
         ));
     }
 

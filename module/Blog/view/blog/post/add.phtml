@@ -1,14 +1,16 @@
 <?php
+date_default_timezone_set ( 'Asia/Novosibirsk' );
 $title = 'Add Post';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
 <?php
-	//$form->setAttribute('action', $this->url('post',array('action' => 'add')));
-	//$form->setAttribute('class', 'form-horizontal');
+	$form->setAttribute('action', $this->url('post',array('action' => 'add')));
+	$form->setAttribute('class', 'form-horizontal');
 	
-	echo $this->Form($this->form);
+	echo $this->ztbForm($this->form);
+
 ?>
 
 <script type="text/javascript">

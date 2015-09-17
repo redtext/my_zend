@@ -9,6 +9,7 @@ $modules = array(
         'DoctrineORMModule',
         'BjyAuthorize',
         'ZfcUserDoctrineORM',
+        'ZfcTwitterBootstrap',
         'Album',
         'Report',
         'Partner',

@@ -39,7 +39,7 @@ class CategoryController extends EntityUsingController
             $form->setInputFilter($category->getInputFilter());
             $form->setData($request->getPost());
 
-            if ($form->isValid()) {
+            //if ($form->isValid()) {
                 $em = $this->getEntityManager();
                 $em->persist($category);
                 $em->flush();
@@ -47,7 +47,7 @@ class CategoryController extends EntityUsingController
                 $this->flashMessenger()->addSuccessMessage('Category Saved');
 
                 return $this->redirect()->toRoute('category');
-            }
+            //}
         }
 
         return new ViewModel(array(

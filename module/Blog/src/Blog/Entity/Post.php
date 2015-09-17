@@ -3,17 +3,20 @@
 namespace Blog\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilter;
+use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
 /**
  * Post
- *
+ * @ORM\Entity
  * @ORM\Table(name="posts")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
+ * @property string $title
+ * @property string $content
+ * @property string $id
  */
 class Post implements InputFilterAwareInterface
 {
@@ -55,6 +58,29 @@ class Post implements InputFilterAwareInterface
 
     protected $inputFilter;
 
+    /**
+     * Magic getter to expose protected properties.
+     *
+     * @param string $property
+     * @return mixed
+     */
+    public function __get($property) 
+     {
+         return $this->$property;
+     }
+                                                   
+    /**
+    * Magic setter to save protected properties.
+    *
+    * @param string $property
+    * @param mixed $value
+    */
+    public function __set($property, $value) 
+    {
+        $this->$property = $value;
+    }
+                                                                                                    
+        
     /**
     * Get id
     *
@@ -197,7 +223,7 @@ class Post implements InputFilterAwareInterface
             $inputFilter = new InputFilter();
             $factory     = new InputFactory();
 
-            $inputFilter->add($factory->createInput(array(
+/*            $inputFilter->add($factory->createInput(array(
                 'name'     => 'id',
                 'required' => true,
                 'filters'  => array(
@@ -240,7 +266,7 @@ class Post implements InputFilterAwareInterface
                     ),
                 ),
             )));
-
+*/
             $this->inputFilter = $inputFilter;
         }
 

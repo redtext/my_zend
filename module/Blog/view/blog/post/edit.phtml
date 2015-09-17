@@ -1,15 +1,15 @@
 <?php
+
 $title = 'Edit Post';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
 <?php
-	//$form->setAttribute('action', $this->url('post', array('action' => 'edit', 'id' => $this->id)));
-	//$form->setAttribute('class', 'form-horizontal');
-
-	echo $this->form($this->form);
+	$form->setAttribute('action', $this->url('post', array('action' => 'edit', 'id' => $post->getId())));
+	$form->setAttribute('class', 'form-horizontal');
 	
+	echo $this->ztbForm($form);
 ?>
 
 <script type="text/javascript">

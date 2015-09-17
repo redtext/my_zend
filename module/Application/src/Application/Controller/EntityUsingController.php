@@ -3,6 +3,8 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Doctrine\ORM\EntityManager;
+
 
 class EntityUsingController extends AbstractActionController
 {
@@ -11,6 +13,12 @@ class EntityUsingController extends AbstractActionController
 	* @var EntityManager
 	*/
 	protected $entityManager;
+	
+	/**
+	 * @var DoctrineORMEntityManager
+	  */
+	 protected $em;
+	  
 	
 	/**
 	* Sets the EntityManager
@@ -36,9 +44,9 @@ class EntityUsingController extends AbstractActionController
 	*/
 	protected function getEntityManager()
 	{
-		if (null === $this->entityManager) {
-			$this->setEntityManager($this->getServiceLocator()->get('Doctrine\ORM\EntityManager'));
+		if (null === $this->em) {
+			$this->em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
 		}
-		return $this->entityManager;
+		return $this->em;
 	}
 } 

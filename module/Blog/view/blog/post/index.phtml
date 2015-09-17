@@ -4,15 +4,24 @@ $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p><a href="<?php echo $this->url('post', array('action'=>'add'));?>">Add new blog post</a></p>
+
+<?php // explicit usage
+// explicit types: circle, rounded, polaroid
+echo $this->ztbImage()->circle('/img/zf2-logo.png'); ?>
 <table class="table table-bordered table-hover">
     <tr>
         <th>Post</th>
+        <th>Content</th>
+        <th>Date</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
     </tr>
     <?php foreach($posts as $post) : ?>
 	    <tr>
-	        <td><?php echo $this->escapeHtml($post->getTitle());?></td>
+	        <td><?php echo $this->escapeHtml($post->gettitle());?></td>
+	        <td><?php echo $this->escapeHtml($post->getContent());?></td>
+	        <td><?php echo $this->escapeHtml($post->getCreatedDate());?></td>
+
 	        <td>
 	            <a href="<?php echo $this->url('post', array('action' => 'edit', 'id' => $post->getId())); ?>">Edit</a>
 	        </td>
