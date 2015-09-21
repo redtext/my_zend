@@ -17,9 +17,8 @@ echo $this->ztbImage()->polaroid('/img/zf2-logo.png'); ?>
 	    <?php if (isset($posts)):?>
 	    <div class="panel-body">
 	    	<?php if ($this->isAllowed('controller/blog/post:add', 'admin')) { ?>
-	        	    <a href="<?php echo $this->url('post', array('action'=>'add'));?>"><?php echo $this->translate('Add Contact'); ?><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-7-user-add.png"/></a>
+	        	    <a href="<?php echo $this->url('post', array('action'=>'add'));?>"><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-7-user-add.png"/><?php echo $this->translate('Add Contact'); ?></a>
 	        <?php }  ?>
-	            		    
     <table class="table">
 	<thead>
 	    <tr>
@@ -48,7 +47,8 @@ echo $this->ztbImage()->polaroid('/img/zf2-logo.png'); ?>
 	        <td>
 	            <?php if ($this->isAllowed('controller/blog/post:add', 'admin')) { ?>
 	            <a href="<?php echo $this->url('post', array('action' => 'edit', 'id' => $post->getId())); ?>">Edit</a>
-	            <a href="<?php echo $this->url('post', array('action' => 'delete', 'id' => $post->getId())); ?>" onclick="return confirm('Are you sure?')"><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-17-bin.png"/></a>
+	            <!--a href="<?php echo $this->url('post', array('action' => 'delete', 'id' => $post->getId())); ?>" onclick="return confirm('Are you sure?')"><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-17-bin.png"/></a-->
+	            <a href="<?php echo $this->url('post', array('action' => 'delete', 'id' => $post->getId())); ?>" onclick="return confirm('Are you sure?')"><img alt="Delete" src="/img/delete.png"/></a>
 	            <?php } ?>
 	        </td>
 	    </tr>

@@ -221,17 +221,18 @@ class Post implements InputFilterAwareInterface
     {
         if (!$this->inputFilter) {
             $inputFilter = new InputFilter();
-            $factory     = new InputFactory();
+            //$factory     = new InputFactory();
 
-/*            $inputFilter->add($factory->createInput(array(
+            //$inputFilter->add($factory->createInput(array(
+            /*$inputFilter->add(array(
                 'name'     => 'id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
-            )));
+            )); */
 
-            $inputFilter->add($factory->createInput(array(
+            $inputFilter->add(array(
                 'name'     => 'title',
                 'required' => true,
                 'filters'  => array(
@@ -248,9 +249,9 @@ class Post implements InputFilterAwareInterface
                         ),
                     ),
                 ),
-            )));
+            ));
 
-            $inputFilter->add($factory->createInput(array(
+            $inputFilter->add(array(
                 'name'     => 'content',
                 'required' => true,
                 'filters'  => array(
@@ -265,8 +266,8 @@ class Post implements InputFilterAwareInterface
                         ),
                     ),
                 ),
-            )));
-*/
+            ));
+
             $this->inputFilter = $inputFilter;
         }
 

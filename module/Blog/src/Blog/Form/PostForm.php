@@ -15,7 +15,8 @@ class PostForm extends Form
         $this->add(array(
             'name' => 'title',
             'type'  => 'text',
-            'options' => array('label' => 'Title'),
+            'options' => array(
+        	    'label' => 'Title'),
             'attributes' => array(
                 'class' => 'input-xxlarge'
             )
@@ -24,7 +25,8 @@ class PostForm extends Form
         $this->add(array(
             'name' => 'content',
             'type'  => 'textarea',
-            'options' => array('label' => 'Content',),
+            'options' => array(
+        	    'label' => 'Content',),
         ));
 
         $this->add(array(

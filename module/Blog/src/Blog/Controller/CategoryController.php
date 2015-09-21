@@ -3,6 +3,7 @@
 namespace Blog\Controller;
 
 use Application\Controller\EntityUsingController;
+use DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity;
 use Zend\View\Model\ViewModel;
 
 use Blog\Form\CategoryForm;
@@ -25,29 +26,34 @@ class CategoryController extends EntityUsingController
 
     public function editAction()
     {
-        $category = new Category;
+	$id = (int) $this->params()->fromRoute('id', 0);
+	$category = new Category;
 
         if ($this->params('id') > 0) {
             $category = $this->getEntityManager()->getRepository('Blog\Entity\Category')->find($this->params('id'));
         }
 
-        $form = new CategoryForm();
+        $form = new CategoryForm($this->getEntityManager());
+        $form->setHydrator(new DoctrineEntity($this->getEntityManager(),'Blog\Entity\Category'));
         $form->bind($category);
-
+	$form->get('submit')->setAttribute('value', 'Edit');
+	
         $request = $this->getRequest();
         if ($request->isPost()) {
+            
             $form->setInputFilter($category->getInputFilter());
             $form->setData($request->getPost());
 
-            //if ($form->isValid()) {
+            if ($form->isValid()) {
                 $em = $this->getEntityManager();
+
                 $em->persist($category);
                 $em->flush();
 
-                $this->flashMessenger()->addSuccessMessage('Category Saved');
+                $this->flashMessenger()->addSuccessMessage('Post Saved');
 
                 return $this->redirect()->toRoute('category');
-            //}
+            }
         }
 
         return new ViewModel(array(
@@ -55,7 +61,7 @@ class CategoryController extends EntityUsingController
             'form' => $form
         ));
     }
-
+    
     public function addAction()
     {
         return $this->editAction();
