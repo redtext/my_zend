@@ -66,7 +66,7 @@ return array(
                 			  'Album\Controller\Album',
                 			  'PhoneBook\Controller\PhoneBook',
                 			  ),
-                    'action' => array('index'),
+                    'action' => array('index', 'detail'),
                     'roles' => array('guest', 'user'),
                 ),
                 

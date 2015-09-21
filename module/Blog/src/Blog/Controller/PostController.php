@@ -76,6 +76,27 @@ class PostController extends EntityUsingController
         return $this->editAction();
     }
 
+
+    public function detailAction()
+	{
+           $id = $this->params()->fromRoute('id');
+    
+	   if ($this->params('id') > 0) {
+            $post = $this->getEntityManager()->getRepository('Blog\Entity\Post')->find($this->params('id'));
+    	    }
+        	   
+	   //try {
+    //    	$post = $this->postService->findPost($id);
+//	    } catch (\InvalidArgumentException $ex) {
+//                   return $this->redirect()->toRoute('post');
+//            }
+                                                
+               
+            return new ViewModel(array(
+                 'post' => $post
+          ));
+	}       	
+
     /**
     * Delete action
     *
