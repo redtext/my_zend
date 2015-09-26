@@ -36,7 +36,7 @@ return array(
                     'host'     => 'localhost',
                     'port'     => '3306',
                     'user'     => 'zend',
-                    'password' => 'Stpkrgd77',
+                    'password' => 'sggutdcchjy',
                     'dbname'   => 'zend',
                 )
             ),
