@@ -1,5 +1,5 @@
 <?php
-$env = getenv('APP_ENV') ?: 'production';    
+$env = getenv('APP_ENV') ?: 'production';
 
 $modules = array(
     'Application',
@@ -46,24 +46,18 @@ return array(
             './module',
             './vendor'
             ),
+        'config_glob_paths' => array('config/autoload/{,*.}{global,local}.php'),
 
-        'config_glob_paths' => array('config/autoload/{,*.}{global,local}.php'
-        ),
-        
-        
-        // Use the $env value to determine the state of the flag
+    /*    // Use the $env value to determine the state of the flag
         'config_cache_enabled' => ($env == 'production'),
         'config_cache_key' => 'app_config',
         
         // Use the $env value to determine the state of the flag
         'module_map_cache_enabled' => ($env == 'production'),
-                
-        'module_map_cache_key' => 'module_map',              
+        'module_map_cache_key' => 'module_map',
         'cache_dir' => 'data/config/',
-                                
-        // Use the $env value to determine the state of the flag
-        'check_dependencies' => ($env != 'production'),
-    ),
-                                                                    
         
-);
+        // Use the $env value to determine the state of the flag
+        'check_dependencies' => ($env != 'production'), */
+        )
+    );
