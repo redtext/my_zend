@@ -1,0 +1,61 @@
+<?php
+$title = 'Posts';
+$this->headTitle($title);
+?>
+
+<?php // explicit usage
+// explicit types: circle, rounded, polaroid
+echo $this->ztbImage()->polaroid('/img/zf2-logo.png'); ?>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">Телефонный справочник</h3>
+	    </div>
+	    
+	    <?php if (isset($posts)):?>
+	    <div class="panel-body">
+	    	<?php if ($this->isAllowed('controller/blog/post:add', 'admin')) { ?>
+	        	    <a href="<?php echo $this->url('post', array('action'=>'add'));?>"><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-7-user-add.png"/><?php echo $this->translate('Add Contact'); ?></a>
+	        <?php }  ?>
+    <table class="table">
+	<thead>
+	    <tr>
+		<th><?php echo $this->translate('Id'); ?></th>
+        	<th><?php echo $this->translate('Full name'); ?></th>
+        	<th><?php echo $this->translate('Position'); ?></th>
+        	<th><?php echo $this->translate('Office'); ?></th>
+        	<th><?php echo $this->translate('tel_int'); ?></th>
+        	<th><?php echo $this->translate('tel_gorod'); ?></th>
+        	<th><?php echo $this->translate('sotovyi'); ?></th>
+        	<th><?php echo $this->translate('email'); ?></th> 
+    		<th> </th>
+    	    </tr>
+	</thead>
+	            
+	<?php foreach($posts as $post) : ?>
+	    <tr>
+		<td> </td>
+	        <td><a href="<?php echo $this->url('post', array('action' => 'detail', 'id' =>  $post->getid())) ?>"><?php echo $this->escapeHtml($post->gettitle());?></a></td>
+	        <td><?php echo $this->escapeHtml($post->getContent());?></td>
+	        <td><?php echo $this->escapeHtml($post->getcreatedDate()->format('Y-m-d H:i'));?></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	        <td>
+	            <?php if ($this->isAllowed('controller/blog/post:add', 'admin')) { ?>
+	            <a href="<?php echo $this->url('post', array('action' => 'edit', 'id' => $post->getId())); ?>">Edit</a>
+	            <!--a href="<?php echo $this->url('post', array('action' => 'delete', 'id' => $post->getId())); ?>" onclick="return confirm('Are you sure?')"><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-17-bin.png"/></a-->
+	            <a href="<?php echo $this->url('post', array('action' => 'delete', 'id' => $post->getId())); ?>" onclick="return confirm('Are you sure?')"><img alt="Delete" src="/img/delete.png"/></a>
+	            <?php } ?>
+	        </td>
+	    </tr>
+	<?php endforeach; ?>
+    </table>
+	    <?php endif; ?>
+    	    </div>
+	</div>
+    </div>
+</div>

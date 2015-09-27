@@ -1,0 +1,22 @@
+<?php
+$title = 'Add Post';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+
+<?php
+	$form->setAttribute('action', $this->url('post',array('action' => 'add')));
+	$form->setAttribute('class', 'form-horizontal');
+	$this->headScript()->appendFile("/js/tiny_mce/tiny_mce.js");
+	echo $this->ztbForm($this->form);
+	
+?>
+
+<script type="text/javascript">
+tinyMCE.init({
+    mode: "textareas",
+    theme: "advanced",
+});
+</script>
+
