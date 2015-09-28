@@ -18,7 +18,6 @@ $modules = array(
         'TMC',
         'Doc',
         'Software',
-        'Admin',
         'Blog',
         'PhoneBook',
         'Checklist',

@@ -88,7 +88,7 @@ return array(
             	    ),
         	)
         	),
-	    array(
+	    /*array(
 	        'label' => 'Admin',
     	        'route' => 'admin',
     	        'pages' => array(
@@ -108,7 +108,7 @@ return array(
             	        'action' => 'delete',
             	    ),
         	)
-        	),        	
+        	), */        	
     	    array(
 	        'label' => 'Blog',
     	        'route' => 'post',
