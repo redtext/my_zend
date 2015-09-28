@@ -1,106 +1,64 @@
 <?php
 
- // Filename: /module/Blog/config/module.config.php
+namespace Blog;
+
 return array(
-
-/**    'db' => array(
-         'driver'         => 'Pdo',
-         'username'       => 'zend',  //edit this
-         'password'       => 'sggutdcchjy',  //edit this
-         'dsn'            => 'mysql:dbname=zend;host=localhost',
-         'driver_options' => array(
-             \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
-                )
-        ),*/
-    'service_manager' => array(
-         'factories' => array(
-             'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\ZendDbSqlMapperFactory',
-             'Blog\Service\PostServiceInterface' => 'Blog\Factory\PostServiceFactory',
-            // 'Zend\Db\Adapter\Adapter'           => 'Zend\Db\Adapter\AdapterServiceFactory'
-         )
-     ),
     'controllers' => array(
-         'factories' => array(
-             'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory',
-             'Blog\Controller\Write' => 'Blog\Factory\WriteControllerFactory',
-             'Blog\Controller\Delete' => 'Blog\Factory\DeleteControllerFactory'
+        'invokables' => array(
+            'blog/post' => 'Blog\Controller\PostController',
+            'blog/category' => 'Blog\Controller\CategoryController',
+        ),
+    ),
+    'router' => array(
+        'routes' => array(
+            'post' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/post[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'blog/post',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            'category' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/category[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'blog/category',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+        ),
+    ),
+
+    'view_manager' => array(
+        'template_path_stack' => array(
+            'blog' => __DIR__ . '/../view',
+        ),
+    ),
+    'doctrine' => array(
+        'driver' => array(
+            __NAMESPACE__ . '_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                )
             )
-        ),
-
-    // This lines opens the configuration for the RouteManager
-   'router' => array(
-         'routes' => array(
-             'post' => array(
-                 'type' => 'literal',
-                 'options' => array(
-                     'route'    => '/blog',
-                     'defaults' => array(
-                         'controller' => 'Blog\Controller\List',
-                         'action'     => 'index',
-                     ),
-                 ),
-                 'may_terminate' => true,
-                 'child_routes'  => array(
-                     'detail' => array(
-                         'type' => 'segment',
-                         'options' => array(
-                             'route'    => '/:id',
-                             'defaults' => array(
-                                 'action' => 'detail'
-                             ),
-                             'constraints' => array(
-                                 'id' => '[1-9]\d*'
-                             )
-                         )
-                     ),
-		    'add' => array(
-                         'type' => 'literal',
-                         'options' => array(
-                             'route'    => '/add',
-                             'defaults' => array(
-                                 'controller' => 'Blog\Controller\Write',
-                                 'action'     => 'add'
-                             )
-                         )
-                     ),
-                     'edit' => array(
-                         'type' => 'segment',
-                         'options' => array(
-                             'route'    => '/edit/:id',
-                             'defaults' => array(
-                                 'controller' => 'Blog\Controller\Write',
-                                 'action'     => 'edit'
-                             ),
-                             'constraints' => array(
-                                 'id' => '\d+'
-                             )
-                         )
-                     ),
-                     
-                     'delete' => array(
-                         'type' => 'segment',
-                         'options' => array(
-                             'route'    => '/delete/:id',
-                             'defaults' => array(
-                                 'controller' => 'Blog\Controller\Delete',
-                                 'action'     => 'delete'
-                             ),
-                             'constraints' => array(
-                                 'id' => '\d+'
-                             )
-                         )
-                     ),
-  
-
-                 )
-             )
-         )
-     ),
-
-     'view_manager' => array(
-              'template_path_stack' => array(
-                     'blog' =>  __DIR__ . '/../view',
-        ),
-     ),
- 
+        )
+    ),
 );

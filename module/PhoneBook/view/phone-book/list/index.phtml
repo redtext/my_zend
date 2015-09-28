@@ -1,35 +1,55 @@
-<?php
-
- $title = 'Телефонный справочник';
- $this->headTitle($title);
- ?>
- <h1><?php echo $this->escapeHtml($title); ?></h1>
- <p>
-     <a href="<?php echo $this->url('phone', array('action'=>'add'));?>">Добавить новую запись</a>
- </p>
-
- <table class="table table-bordered table-hover table-striped">
- <tr>
-     <th>Должность</th>
-     <th>ФИО</th>
-     <th>Должность</th>
-     <th>Офис</th>
-     <th>Тел. внутр</th>
-     <th>Тел. городской</th>
-     <th>Сотовый</th>
-     <th>E-mail</th>
-     <th>&nbsp;</th>
- </tr>
- <?php foreach ($albums as $album) : ?>
- <tr>
-     <td><?php echo $this->escapeHtml($album->title);?></td>
-     <td><?php echo $this->escapeHtml($album->artist);?></td>
-     <td>
-         <a href="<?php echo $this->url('phone',
-             array('action'=>'edit', 'id' => $phone->id));?>">Edit</a>
-         <a href="<?php echo $this->url('phone',
-             array('action'=>'delete', 'id' => $phone->id));?>">Delete</a>
-     </td>
- </tr>
- <?php endforeach; ?>
- </table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Телефонный справочник</h3>
+            </div>
+            <div class="panel-body">
+                <?php if ($this->isAllowed('controller/PhoneBook\Controller\PhoneBook:add', 'admin')) { ?>
+            	    <a href="<?php echo $this->url('phone', array('action'=>'add'));?>"><?php echo $this->translate('Add Contact'); ?></a>
+		<?php }  ?>
+                
+                <?php if (isset($phones)):?>
+                <table class="table">
+                    <thead>
+                    <tr>
+			<th><?php echo $this->translate('Id'); ?></th>
+                        <th><?php echo $this->translate('Full name'); ?></th>
+                        <th><?php echo $this->translate('Position'); ?></th>
+                        <th><?php echo $this->translate('Office'); ?></th>
+                        <th><?php echo $this->translate('tel_int'); ?></th>
+                        <th><?php echo $this->translate('tel_gorod'); ?></th>
+                        <th><?php echo $this->translate('sotovyi'); ?></th>
+                        <th><?php echo $this->translate('email'); ?></th>
+                        
+                        <th></th>
+	            </tr>
+                    </thead>
+                
+                <?php foreach($phones as $phone): ?>
+                    <tbody>
+                    <tr>
+                        <td><?php echo $phone->getId(); ?></td>
+                        <td><?php echo $phone->getFullName(); ?></td>
+                        <td><?php echo $phone->getPosition(); ?></td>
+                        <td><?php echo $phone->getOffice(); ?></td>
+                        <td><?php echo $phone->getTel_Int(); ?></td>
+                        <td><?php echo $phone->getTel_Gorod(); ?></td>
+                        <td><?php echo $phone->getSotovyi(); ?></td>
+                        <td><?php echo $phone->getemail(); ?></td>
+                        <?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
+                        <td>
+                            <a href="<?php echo $this->url('phone', 
+                            array('action'=>'edit', 'id' => $phone->getId()));?>"><?php echo $this->translate('Edit'); ?></a> 
+                            <a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId()));?>"><?php echo $this->translate('Delete'); ?></a>
+                        </td>
+                        <?php } ?>
+                    </tr>
+                    </tbody>
+                <?php endforeach; ?>
+                </table>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

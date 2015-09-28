@@ -26,8 +26,22 @@
         ; ?>
 
     </head>
+    <div class="col-sm-6 col-lg-1"> 
+    <?php //echo $this->zfcUserLoginWidget(); ?>
+    
+    <!-- Test if the User is connected -->
+    <?php if(!$this->zfcUserIdentity()): ?>
+        <!-- display the login form -->
+            <?php else: ?>
+                <!-- display the 'display name' of the user -->
+                    Пользователь: <?php echo $this->zfcUserIdentity()->getDisplayname(); ?>
+                    <a href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
+                    <?php endif?>
+    
+     </div>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -38,14 +52,19 @@
                     <!--a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('img/zf2-logo.png') ?>" alt="Zend Framework 2"/>&nbsp;<?php echo $this->translate('Skeleton Application') ?></a-->
                 </div>
                 <div class="collapse navbar-collapse">
-                    <?php echo $this->navigation('navigation')->breadcrumbs()->setMinDepth(0); ?>
-                                    
-                    
-                        <!--ul class="nav navbar-nav"-->
+		    <?php // <-- Add this !!
+			echo $this->navigation('navigation')
+			            ->menu()
+            	    	            ->setMinDepth(0)
+                                    ->setMaxDepth(0)
+                                    ->setUlClass('nav navbar-nav');
+            	    ?>
+
+                    <!--ul class="nav navbar-nav">
                         <!--li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li-->                        
                         <!--li class="active"><a href="<?php echo $this->url('partner') ?>"><?php echo $this->translate('Конграгенты') ?></a></li-->
                         <!--li class="active"><a href="<?php echo $this->url('phone') ?>"><?php echo $this->translate('Телефоны') ?></a></li-->
-                        <!--li class="active"><a href="<?php echo $this->url('purchase') ?>"><?php echo $this->translate('Закупки') ?></a></li-->
+                        <!--li class="active"><a href="<?php echo $this->url('purchase') ?>"><?php echo $this->translate('Закупки') ?></a></li->
                         <!--li class="active"><a href="<?php echo $this->url('budget') ?>"><?php echo $this->translate('БДДС') ?></a></li-->
                         <!--li class="active"><a href="<?php echo $this->url('tmc') ?>"><?php echo $this->translate('ТМЦ') ?></a></li-->
                         <!--li class="active"><a href="<?php echo $this->url('doc') ?>"><?php echo $this->translate('Документы в работе') ?></a></li-->
@@ -56,7 +75,7 @@
                         <!--li class="active"><a href="<?php echo $this->url('post') ?>"><?php echo $this->translate('Блоги') ?></a></li-->
                         
                         
-                    <!--/ul-->
+                    </ul-->
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
@@ -64,10 +83,10 @@
     	    <?php
     	        echo $this->navigation('navigation') // <-- Update this!!
     	                      ->breadcrumbs()
-	                      ->setMinDepth(0)
-                              ->setPartial('partial/breadcrumb.phtml');
-              ?>
-    	                                                          
+    	                      ->setMinDepth(0)
+    	                      ->setPartial('partial/breadcrumb.phtml');
+    	    ?>
+    	                                                      
     	    <?php echo $this->content; ?>
         	<hr>
         	<footer>

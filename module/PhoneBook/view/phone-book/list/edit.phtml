@@ -1,0 +1,16 @@
+<?php
+
+$title = 'Edit User';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<form method="post">
+  <?php echo $this->translate('fullname') ?>: <input class="form-control" type="text" name="fullname" value="<?php echo $phone->getFullname(); ?>"><br>
+  <?php echo $this->translate('position') ?>: <input class="form-control" type="text" name="position" value="<?php echo $phone->getPosition(); ?>"><br>
+  <?php echo $this->translate('office') ?>: <input class="form-control" type="text" name="office" value="<?php echo $phone->getOffice(); ?>"><br>
+  <?php echo $this->translate('tel_int') ?>: <input class="form-control" type="text" name="tel_int" value="<?php echo $phone->getTel_Int(); ?>"><br>
+  <?php echo $this->translate('tel_gorod') ?>: <input class="form-control" type="text" name="tel_gorod" value="<?php echo $phone->getTel_Gorod(); ?>"><br>
+  <?php echo $this->translate('sotovyi') ?>: <input class="form-control" type="text" name="sotovyi" value="<?php echo $phone->getSotovyi(); ?>"><br>
+  <?php echo $this->translate('email') ?>: <input class="form-control" type="text" name="email" value="<?php echo $phone->getemail(); ?>"></br>    
+    <input class="btn btn-default" type="submit" value="Submit">
+</form>

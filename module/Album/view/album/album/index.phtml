@@ -5,9 +5,11 @@
  $this->headTitle($title);
  ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php if ($this->isAllowed('controller/Album\Controller\Album:add', 'admin')) { ?>
  <p>
      <a href="<?php echo $this->url('album', array('action'=>'add'));?>">Add new album</a>
  </p>
+<?php } ?>
 
  <table class="table table-bordered table-hover table-striped">
  <tr>
@@ -15,16 +17,35 @@
      <th>Artist</th>
      <th>&nbsp;</th>
  </tr>
- <?php foreach ($albums as $album) : ?>
+ <?php foreach ($this->paginator as $album) : ?>
  <tr>
      <td><?php echo $this->escapeHtml($album->title);?></td>
      <td><?php echo $this->escapeHtml($album->artist);?></td>
-     <td>
+    <?php if ($this->isAllowed('controller/Album\Controller\Album:add', 'admin')) { ?> 
+    <td>
          <a href="<?php echo $this->url('album',
              array('action'=>'edit', 'id' => $album->id));?>">Edit</a>
          <a href="<?php echo $this->url('album',
              array('action'=>'delete', 'id' => $album->id));?>">Delete</a>
      </td>
+     <?php } ?>
  </tr>
  <?php endforeach; ?>
  </table>
+
+<?php
+ // add at the end of the file after the table
+ echo $this->paginationControl(
+     // the paginator object
+     $this->paginator,
+     // the scrolling style
+     'sliding',
+     // the partial to use to render the control
+     'partial/paginator.phtml',
+     // the route to link to when a user clicks a control link
+     array(
+         'route' => 'album'
+     )
+ );
+ ?>
+
