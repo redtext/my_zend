@@ -8,6 +8,7 @@ nbproject
 .settings
 composer.lock
 vendor/bin
+*/doctrine-orm-module/config/module.config.php
 zend_error_log
 access-zend.log
 *_log
