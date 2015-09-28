@@ -53,6 +53,7 @@ return array(
                 			  'PhoneBook\Controller\PhoneBook',
                 			  'PhoneBook\Controller\List',
                 			  'DoctrineORMModule\Yuml\YumlController',
+                			  'ZfcAdmin\Controller\AdminController'
                 			  ),
                     'action' => array('index', 'add', 'detail', 'delete', 'edit'),
                     'roles' => array('admin'),

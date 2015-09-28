@@ -5,6 +5,7 @@ $modules = array(
     'Application',
         'ZfcBase', 
         'ZfcUser',
+        'ZfcAdmin',
         'DoctrineModule',
         'DoctrineORMModule',
         'BjyAuthorize',
