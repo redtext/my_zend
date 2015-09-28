@@ -11,6 +11,7 @@ $modules = array(
         'BjyAuthorize',
         'ZfcUserDoctrineORM',
         'ZfcTwitterBootstrap',
+        'ZfcUserAdmin',
         'Album',
         'Report',
         'Partner',
