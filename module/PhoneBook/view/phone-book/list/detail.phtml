@@ -1,0 +1,18 @@
+<!-- FileName: /module/Blog/view/blog/list/detail.phtml -->
+<h1>User detail</h1>
+
+<dl>
+     <dt><?php echo $this->translate('Full name'); ?></dt>
+     <dd><?php echo $this->escapeHtml($this->post->getTitle());?></dd>
+     <dt><?php echo $this->translate('content'); ?></dt>
+     <dd><?php echo $this->escapeHtml($this->post->getContent());?></dd>
+</dl>
+<?php if ($this->isAllowed('controller/Blog\Controller\Write:add', 'admin')) { ?>
+<a href="<?php echo $this->url('post') ?>/edit/<?php echo $post->getid() ?>">Редактировать</a>
+<a href="<?php echo $this->url('post') ?>/delete/<?php echo $post->getid() ?>">Удалить</a>
+<a href="<?php echo $this->url('post') ?>">Вернуться</a>
+<?php } 
+else
+{ ?>
+<a href="<?php echo $this->url('post') ?>">Вернуться</a>
+<?php } ?>
