@@ -21,7 +21,8 @@
         "zf-commons/zfc-user": "0.*",
         "zf-commons/zfc-base": "0.*",
         "zf-commons/zfc-user-doctrine-orm": "0.1.*",
-        "mwillbanks/zfc-twitter-bootstrap": "dev-master"
+        "mwillbanks/zfc-twitter-bootstrap": "dev-master",
+        "zf-commons/zfc-admin": "0.1.*"
     },
     "require-dev": {
         
