@@ -56,7 +56,7 @@ return array(
                 			  'ZfcAdmin\Controller\AdminController',
                 			  'zfcuseradmin'
                 			  ),
-                    'action' => array('index', 'add', 'detail', 'delete', 'edit', 'list', 'create'),
+                    'action' => array('index', 'add', 'detail', 'delete', 'edit', 'list', 'create', 'remove'),
                     'roles' => array('admin'),
                 ),
                 
