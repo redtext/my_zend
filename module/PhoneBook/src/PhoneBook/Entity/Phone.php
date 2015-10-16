@@ -13,7 +13,7 @@ use Zend\InputFilter\InputFilterInterface;
 
     /** @ORM\Entity */
 
-class Phone //implements ProviderInterface
+class Phone implements InputFilterAwareInterface
 {
     /**
     * @ORM\Id
@@ -141,18 +141,20 @@ class Phone //implements ProviderInterface
     {
         if (!$this->inputFilter) {
             $inputFilter = new InputFilter();
-            $factory     = new InputFactory();
+            //$factory     = new InputFactory();
 
-            $inputFilter->add($factory->createInput(array(
+            /*$inputFilter->createInput(array(
+            // $inputFilter->add($factory->createInput(array(    
                 'name'     => 'id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
-            )));
+            )); */
 
-            $inputFilter->add($factory->createInput(array(
-                'name'     => 'title',
+            //$inputFilter->add($factory->createInput(array(
+            $inputFilter->createInput(array(
+                'name'     => 'fullname',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
@@ -168,10 +170,11 @@ class Phone //implements ProviderInterface
                         ),
                     ),
                 ),
-            )));
+            ));
 
-            $inputFilter->add($factory->createInput(array(
-                'name'     => 'text',
+            //$inputFilter->add($factory->createInput(array(
+            $inputFilter->createInput(array(
+                'name'     => 'position',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StringTrim'),
@@ -185,7 +188,7 @@ class Phone //implements ProviderInterface
                         ),
                     ),
                 ),
-            )));
+            ));
 
             $this->inputFilter = $inputFilter;
         }

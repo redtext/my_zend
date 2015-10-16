@@ -6,9 +6,10 @@
             </div>
             <div class="panel-body">
                 <?php if ($this->isAllowed('controller/PhoneBook\Controller\PhoneBook:add', 'admin')) { ?>
-            	    <a href="<?php echo $this->url('phone', array('action'=>'add'));?>"><?php echo $this->translate('Add Contact'); ?></a>
-		<?php }  ?>
-                
+            	    <a href="<?php echo $this->url('phone', array('action'=>'add'));?>"><img alt="Delete" src="/img/gliphicons_free/gliphicons/glyphicons-7-user-add.png"/><?php echo $this->translate('Add Contact'); ?></a>
+		      <?php }  ?>
+		
+		                       
                 <?php if (isset($phones)):?>
                 <table class="table">
                     <thead>
@@ -41,7 +42,8 @@
                         <td>
                             <a href="<?php echo $this->url('phone', 
                             array('action'=>'edit', 'id' => $phone->getId()));?>"><?php echo $this->translate('Edit'); ?></a> 
-                            <a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId()));?>"><?php echo $this->translate('Delete'); ?></a>
+                            <!--a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId()));?>"><?php echo $this->translate('Delete'); ?></a-->
+                            <a href="<?php echo $this->url('phone', array('action'=>'delete', 'id' => $phone->getId())); ?>" onclick="return confirm('Are you sure?')"><img alt="Delete" src="/img/delete.png"/></a>
                         </td>
                         <?php } ?>
                     </tr>
